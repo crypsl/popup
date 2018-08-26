@@ -42,10 +42,6 @@
 		modal.style.display = "none" 
 	}
 
-	btn.addEventListener("click",function(){
-		open_modal()
-	})
-
 	span.addEventListener("click",function(){
 		close_modal()
 	})
