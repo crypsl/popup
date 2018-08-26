@@ -1,6 +1,3 @@
-	var modal = document.querySelector('#leaveModal')
-	var span = document.querySelector('.close')
-
 	function $(x){
 		return document.querySelector(x);
 	}
@@ -41,7 +38,9 @@
 	function close_modal(){
 		modal.style.display = "none" 
 	}
-
+	
+	var modal = document.querySelector('#leaveModal')
+	var span = document.querySelector('.close')
 	span.addEventListener("click",function(){
 		close_modal()
 	})
