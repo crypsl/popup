@@ -1,3 +1,4 @@
+// Function Declared from here
 	function $(x){
 		return document.querySelector(x);
 	}
