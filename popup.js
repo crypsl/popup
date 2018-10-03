@@ -44,14 +44,6 @@ window.onclick = function(event) {
  
 function $(x){
 	return document.querySelector(x);
-}
-
-function create(el){
-	return document.createElement(el);
-}
-
-function node(str){
-	return document.createTextNode(str);
 } 
 
 function open_modal(){ 
