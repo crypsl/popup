@@ -1,50 +1,67 @@
-// Function Declared from here
-	function $(x){
-		return document.querySelector(x);
+function make_modal(isrc){
+		var pop = document.createElement('div');
+		pop.setAttribute('id','popup');
+		pop.classList.add('modal');
+
+		var con = document.createElement('div');
+		con.classList.add('modal-content');
+
+		var head = document.createElement('div');
+		head.classList.add('modal-header');
+
+		var body = document.createElement('div');
+		body.classList.add('modal-body');
+
+		var span = document.createElement('span');
+		span.classList.add('close');
+		span.innerHTML = "&times;";
+
+		head.appendChild(span);
+		body.innerHTML = '<img src="'+isrc+'"/>';
+
+		con.appendChild(head)
+		con.appendChild(body)
+
+		pop.appendChild(con)
+
+		$('body').appendChild(pop)
 	}
+make_modal('index.jpg')
 
-	function create(el){
-		return document.createElement(el);
-	}
+var modal = document.getElementById('popup'); 
+var span = document.getElementsByClassName("close")[0];
 
-	function node(str){
-		return document.createTextNode(str);
-	} 
+span.onclick = function() {
+    modal.style.display = "none";
+}
 
-	function make_modal(isrc){
-		var main = create('div')
-		main.classList.add('modal')
-		main.setAttribute('id','leaveModal')
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+ 
+function $(x){
+	return document.querySelector(x);
+}
 
-		var content = create('div')
-		content.classList.add('modal-content')
+function create(el){
+	return document.createElement(el);
+}
 
-		var head = create('div')
-		head.classList.add('modal-header')
+function node(str){
+	return document.createTextNode(str);
+} 
 
-		var span = create('span')
-		span.classList.add('close')
-
-		var body = create('div')
-		body.classList.add('modal-body')
-
-		body.innerHTML += '<img class="modal-image" src="'+isrc+'" alt="Offer Image"/>'
-	}
-
-	function open_modal(){
+function open_modal(){ 
 		modal.style.display = "block" 
 		mcookie('modal','opened',1)
-	}
+}
 
-	function close_modal(){
+function close_modal(){
 		modal.style.display = "none" 
-	}
-	
-	var modal = document.querySelector('#leaveModal')
-	var span = document.querySelector('.close')
-	span.addEventListener("click",function(){
-		close_modal()
-	})
+} 
 
 	window.addEventListener("click",function(evt){
 		if(evt.target == modal){
